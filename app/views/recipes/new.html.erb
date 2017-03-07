@@ -1,0 +1,19 @@
+<%=form_for @recipe do |f|%>
+   <%= f.text_field :name%>
+   <%= fields_for :ingredient_names, @ingredient do |ing|%>
+       <%=ing.text_field :name%>
+    <%end%>
+   <%=f.submit%>
+<%end%>
+
+<!--
+This is our goal for what `params` should look like:
+
+{recipe:
+	{name: 'Hamburger'}, ingredient_attributes:[
+		{name: 'burger'},
+		{name: 'bun'},
+		{name: 'lettuce'}
+	]
+}
+-->
