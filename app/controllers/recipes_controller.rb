@@ -13,34 +13,25 @@ class RecipesController < ApplicationController
 
   def create   #POST
     # raise.params.inspect
-    raise recipe_params.inspect
-    # params[:recipe] = {name: "Kebab", id: 12 , ingredient:[name]}
-    
-    # add more ingredient fields to the new form
-    # create a new recipe and associate ingredients
-    # we want to be able to create a recipe with 0-5 ingredients
-    @recipe=Recipe.create(recipe_params)
-     
-        redirect_to recipe_params_path
-      
+    @recipe=Recipe.new(recipe_params)
+    @recipe.user_id = current_user.id
+    if @recipe.save
+    redirect_to recipe_path(@recipe) , :notice => "Your recipe was saved"
+  else
+    render "new"
+  end
   end
 
   def show
   	# binding.pry
   	@recipe=Recipe.find_by(id: params[:id])
-  	
-  	if @recipe
-  		@ingredients=@recipe.ingredients
-  		render 'show'
-    else
-      redirect_to '/'
-    end
+     
   end
 
   private
 
   def recipe_params
-    params.require(:recipe).permit(:name)
+    params.require(:recipe).permit(:name,ingredients_attributes: [:name] )
   end
 end
 # GET '/recipes/1'
