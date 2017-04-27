@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>RecipesApp</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>RecipesApp</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <% flash.each do |key,value|%>
-  <p><%=value%></p>
+<body>
+
+
+    <% if current_user %>
+     <%=link_to "Sign Out", destroy_user_session_path, method: :delete%>
+  <%else%>
+     <%= link_to "Register", new_user_registration_path %>
+     <%= link_to "Sign In", new_user_session_path %>
   <%end%>
-    <%= yield %>
-  </body>
+ <%= yield %>
+  
+
+
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
+</body>
 </html>

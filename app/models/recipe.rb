@@ -8,6 +8,19 @@ class Recipe < ApplicationRecord
 	# end
  accepts_nested_attributes_for :ingredients, allow_destroy: true
  #reject_if: proc {|attributes| attributes['name'].blank?}
+ # def categories_attributes=(category_attributes)
+ #    category_attributes.values.each do |category_attribute|
+ #      category = Category.find_or_create_by(category_attribute)
+ #      self.categories << category
+ #    end
+ #  end
+ def ingredients_attributes=(attributes)
+  attributes.values.each do |att|
+    # binding.pry
+    ingredient = Ingredient.find_or_create_by(att)
+    self.ingredients<< ingredient
+    end 
+ end
 end
 
 

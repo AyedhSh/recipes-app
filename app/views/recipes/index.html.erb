@@ -2,8 +2,15 @@
 	<ul>
 		<p><%=link_to recipe.name, recipe_path(recipe)%>
     </p>
+    <p><%= link_to "Edit" , edit_recipe_path(recipe) %></p>
+    <p><%= link_to "Delete" , current_user.recipe , method: :delete , data:{confirm: "Are you sure to delete #{recipe.name}"} %></p>
+    <!-- = link_to "Delete Message", user_message_path(message.user, message), method: :delete, data: {confirm: "You sure?"} -->
+
+    <hr>
 	</ul>
   
 <%end%>
 
 <%= link_to "New Recipe", new_recipe_path%>
+
+

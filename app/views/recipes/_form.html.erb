@@ -1,0 +1,13 @@
+<%=form_for @recipe do |f|%>
+    <p>
+    <%=f.label :name , 'Reccipe Name:'%>
+    <%= f.text_field :name%>
+<!-- <input type='hidden' name="[recipe]id" value=7/> -->
+    </p>
+   <%= f.fields_for :ingredients do |ing|%>
+    <p><%=ing.label :name, 'Ingredient Name:'%>
+       <%=ing.text_field :name%>
+       </p>
+    <%end%>
+   <%=f.submit%>
+<%end%>

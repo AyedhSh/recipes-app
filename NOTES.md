@@ -1,0 +1,1 @@
+ - When I enter "egg" as an ingredient (lowercase and singular), Rails should associate "Eggs"
