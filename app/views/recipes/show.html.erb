@@ -1,12 +1,15 @@
-<h1>Recipes#show</h1>
 
+<div class="middlePage">
 <h3><%=@recipe.name%></h3>
 
-<ul>
+<ul class="list-group">
   
   <%@recipe.ingredients.each do |i|%>
-    <li> <%= i.name%></li>
+    <% if ! i.name.blank? %>
+    <li class="list-group-item"> <%= i.name%></li>
+    <%end%>
   <%end%>
 
 </ul>
 <%= link_to "Back", recipes_path %>
+</div>

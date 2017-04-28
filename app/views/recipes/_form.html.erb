@@ -1,13 +1,18 @@
-<%=form_for @recipe do |f|%>
-    <p>
-    <%=f.label :name , 'Reccipe Name:'%>
-    <%= f.text_field :name%>
-<!-- <input type='hidden' name="[recipe]id" value=7/> -->
-    </p>
-   <%= f.fields_for :ingredients do |ing|%>
-    <p><%=ing.label :name, 'Ingredient Name:'%>
-       <%=ing.text_field :name%>
-       </p>
-    <%end%>
-   <%=f.submit%>
-<%end%>
+<div class="middlePage">
+  <%=form_for @recipe ,:html=>{:class =>'form-horizontal'} do |f|%>
+  <fieldset>
+    <legend>Create New Recipe:</legend>
+    <%= f.text_field :name, autofocus: true , placeholder: "Enter Recipe Name" , id: 'textinput' ,class: 'form-control input-md'%>
+    
+
+  </fieldset><br>
+  <fieldset>
+    <legend>Recipe Ingredients:</legend>
+    <%= f.fields_for :ingredients do |ing|%>
+      <%=ing.text_field :name , placeholder: "Enter Recipe Ingredient" , id: 'textinput' ,class: 'form-control input-md'%>
+      <%end%>
+  </fieldset>
+  <br>
+  <%=f.submit "Submit Recipe" , class: "btn btn-primary btn-lg btn-block"%>
+  <%end%>
+</div>

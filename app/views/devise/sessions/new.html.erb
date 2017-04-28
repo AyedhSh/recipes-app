@@ -22,27 +22,24 @@ Log in with Facebook</a><br/>
 </div>
 
 <div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
-<!-- <form class="form-horizontal"> -->
+
 <%= form_for(resource, as: resource_name, url: session_path(resource_name),:html=>{
   :class =>"form-horizontal"} ) do |f| %>
 <fieldset>
 <%= f.email_field :email, autofocus: true , placeholder: "Enter User Email" , id: 'textinput' ,class: 'form-control input-md'%>
-  <!-- <input id="textinput" name="textinput" type="text" placeholder="Enter User Name" class="form-control input-md"> -->
+  
   <div class="spacing">
-  <!-- <input type="checkbox" name="checkboxes" id="checkboxes-0" value="1">
-  <small> Remember me</small> -->
+  
   <% if devise_mapping.rememberable? -%>
   <%= f.check_box :remember_me , id: "checkboxes-0"%>
   <%= f.label :remember_me ,id: "checkboxes-0"%>
   </div>
    <% end -%>
-  <!-- <input id="textinput" name="textinput" type="text" placeholder="Enter Password" class="form-control input-md"> -->
   <%= f.password_field :password, autocomplete: "off" , id: 'textinput' ,class: 'form-control input-md', placeholder: "Enter User password"%>
   <div class="spacing"><a href="#"><small> Forgot Password?</small></a><br/></div>
-  <!-- <button id="singlebutton" name="singlebutton" class="btn btn-info btn-sm pull-right">Sign In</button> -->
   <%= f.submit "Log in" ,class: "btn btn-info btn-sm pull-right"%>
 </fieldset>
-<!-- </form> -->
+
 <% end %>
 </div>
     

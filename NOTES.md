@@ -65,3 +65,12 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+
+
+/*             ///////////////////////////////
+                  ADD DESCRIPTION TO RECIPE
+              ///////////////////////////////
+
+              <%= f.text_area :description, autofocus: true , placeholder: "Enter Recipe description" , id: 'textinput' ,class: 'form-control input-md'%>
