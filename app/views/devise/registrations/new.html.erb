@@ -1,29 +1,59 @@
-<h2>Sign up</h2>
+<div class="middlePage">
+<div class="page-header">
+  <h1 class="logo">Cookers <small>Welcome to our Website!</small></h1>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">Please Sign In</h3>
   </div>
+  <div class="panel-body">
+  
+  <div class="row">
+  
+<div class="col-md-5" >
+<a href="#"><i class="fa fa-facebook-square" aria-hidden="true"> </i>
+Log in with Facebook</a><br/>
+<a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i> Log in with Twitter</a><br/>
+<a href="#"><i class="fa fa-github-square" aria-hidden="true"></i> Log in with Github</a>
+ <br><br> <%= render "devise/shared/links" %>
 
-  <div class="field">
-    <%= f.label :password %>
+</div>
+
+<div class="col-md-7" style="border-left:1px solid #ccc;height:160px">
+<!-- <form class="form-horizontal"> -->
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name),:html=>{
+  :class =>"form-horizontal"} ) do |f| %>
+
+<fieldset>
+<%= f.text_field :username, autofocus: true , placeholder: "Enter User Name" , id: 'textinput' ,class: 'form-control input-md'%>
+
+<%= f.email_field :email, placeholder: "Enter User Email" , id: 'textinput' ,class: 'form-control input-md'%>
+  
+  <div class="spacing">
+  <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <br>
+    <%= f.password_field :password, autocomplete: "off", placeholder: "Enter User password" , id: 'textinput' ,class: 'form-control input-md'%>
+    <%= f.password_field :password_confirmation, autocomplete: "off" , placeholder: "Enter password confirmation" , id: 'textinput' ,class: 'form-control input-md'%>
+    <%= f.submit "Sign up" ,class: "btn btn-info btn-sm pull-right"%>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+<%= devise_error_messages! %>
+  
+</fieldset>
+<!-- </form> -->
 <% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+    
+</div>
+    
+</div>
+</div>
+</div>
+

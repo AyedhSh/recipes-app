@@ -6,22 +6,64 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<style>
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 5%;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+}
+
+li a:hover:not(.active) {
+    background-color: #a5a2a2;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+</style>
 </head>
 
 <body>
-
-
-    <% if current_user %>
-     <%=link_to "Sign Out", destroy_user_session_path, method: :delete%>
+<nav>
+<ul>
+ <li class="active"><%= link_to "Home", recipes_path%></li>
+<% if current_user %>
+  <li style="float:right"><%=link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
   <%else%>
-     <%= link_to "Register", new_user_registration_path %>
-     <%= link_to "Sign In", new_user_session_path %>
+  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+  <li><%= link_to "Sign In", new_user_session_path %></li>
   <%end%>
- <%= yield %>
+  <!-- <li><a href="#home">Home</a></li> -->
+  <% if current_user %>
+  <li><a href="#news"><%= current_user.username%></a></li>
+  <%end%>
+ 
+  <!-- <li style="float:right"><a href="#about">About</a></li> -->
+</ul>
+</nav>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  
+  <%= yield %>
   
 
 
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+  
 </body>
 </html>
