@@ -5,10 +5,10 @@ class Recipe < ApplicationRecord
 
  accepts_nested_attributes_for :ingredients, reject_if: proc {|attributes| attributes['name'].blank? }, allow_destroy: true 
 
-# mount_uploader :image_url , PlacephotoUploader
+mount_uploader :image , PlacephotoUploader
 
- has_attached_file :image_url , style: {large: "600x600>", medium: "300x300>" , thumb: "150x150#" }
- validates_attachment_content_type :image_url, content_type: /\Aimage\/.*\z/
+ # has_attached_file :image_url , style: {large: "600x600>", medium: "300x300>" , thumb: "150x150#" }
+ # validates_attachment_content_type :image_url, content_type: /\Aimage\/.*\z/
 
  def ingredients_attributes=(attributes)
   attributes.values.each do |att|

@@ -12,8 +12,9 @@ class RecipesController < ApplicationController
   end
 
   def create   #POST
-    # raise recipe_params.inspect
+    raise recipe_params.inspect
     @recipe=current_user.recipes.build(recipe_params)
+    @recipe.image = params[:image]
     if @recipe.save
       redirect_to recipe_path(@recipe) , :notice => "Your recipe was saved"
     else
