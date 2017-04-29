@@ -1,9 +1,10 @@
 <div class="middlePage">
-  <%=form_for @recipe ,:html=>{:class =>'form-horizontal'} do |f|%>
+  <%=form_for @recipe ,:html=>{:class =>'form-horizontal',:multipart => true} do |f|%>
   <fieldset>
     <legend>Create New Recipe:</legend>
     <%= f.text_field :name, autofocus: true , placeholder: "Enter Recipe Name" , id: 'textinput' ,class: 'form-control input-md'%>
-    
+    <label>Main photo</label>
+   <%= f.file_field :image %>
 
   </fieldset><br>
   <fieldset>
