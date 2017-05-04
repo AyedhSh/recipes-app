@@ -1,13 +1,49 @@
-<div class="col-sm-4" style="float:left">
-  <!-- <img src='<%=@recipe.image_url%>' class="img-responsive" style="width:100%" alt="Image"> -->
-<%= image_tag @recipe.image.url %>
-  <br>
-</div>
+<div id="boxes">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!--BOX-->
+        <div class="box">
+          <!--BOX HEADER-->
+          <div class="box-header">
+            <!--BOX TITLE-->
+            <div class="box-title pull-left">
+              <p><i class="fa fa-font fa-lg"></i></p>
+              <p> <%=link_to @recipe.name, recipe_path(@recipe)%></p>
+            </div>
+            <!--end: TITLE-->
+            <!--ICONS - FUNCTIONAL-->
+            <div class="box-icon pull-right">
+            <% if current_user %>
+              <a href='<%=edit_recipe_path(@recipe)%>' class="btn-code" title="Edit Recipe" role="button" ><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></a>
+              <a href='"#"' class="btn-information" title="Delete Recipe" role="button"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>
+             <!--  <a href='<%=new_recipe_path%>' class="btn-help" title="Create New Recipe" role="button"><i class="fa fa-plus-circle fa-2x" aria-hidden="true"></i></a> -->
+              <!-- <a href='<%=recipes_path%>' class="btn-minimize" title="Refresh" role="button"><i class="fa fa-refresh fa-2x" aria-hidden="true"></i></a> -->
+              <% end %>
+            </div>
+            
+            
+            <!--end: ICONS-->
+          </div>
+          <!--end: BOX HEADER-->
+          <!--BOX CONTENT-->
+          <div class="box-content">
+            <div class="col-sm-4" style="float:left">
+              <% if @recipe.image %> 
+                <%= image_tag @recipe.image ,class: "img-responsive"%>
+              <% else %>
+                <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+              <%end%>
+              <br>
+            </div>
+            
+            <p><%=link_to @recipe.name, recipe_path(@recipe)%></p>
+            <p><%=@recipe.description%></p>
 
-<div class="middlePage">
-<h3><%=@recipe.name%></h3>
+            
+          </div>
 
-<ul class="list-group">
+<ul class="list-group " id="clean-floating" >
   
   <%@recipe.ingredients.each do |i|%>
     <% if ! i.name.blank? %>
@@ -16,5 +52,15 @@
   <%end%>
 
 </ul>
-<%= link_to "Back", recipes_path %>
 </div>
+          <!--end: BOX CONTENT-->
+        </div>
+        <!--end: BOX-->  
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <div class="middlePage"> -->

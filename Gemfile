@@ -59,3 +59,10 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 gem 'carrierwave'
 gem "paperclip", "~> 4.1.1"
+
+gem 'therubyracer'
+gem 'omniauth'
+gem 'omniauth-digitalocean'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-github'

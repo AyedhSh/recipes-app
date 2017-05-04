@@ -12,12 +12,13 @@ class RecipesController < ApplicationController
   end
 
   def create   #POST
-    raise recipe_params.inspect
+    # raise recipe_params.inspect
     @recipe=current_user.recipes.build(recipe_params)
-    @recipe.image = params[:image]
+    @recipe.image = params[:recipe][:image]
     if @recipe.save
       redirect_to recipe_path(@recipe) , :notice => "Your recipe was saved"
     else
+      @errors = @recipe.errors.full_messages
       render "new"
     end
   end
@@ -29,7 +30,7 @@ class RecipesController < ApplicationController
   end
 
     def update
-
+       # raise recipe_params.inspect
      if @recipe.update_attributes(recipe_params)
       redirect_to recipe_path(@recipe) , :notice => "Your recipe was Updated"
     else

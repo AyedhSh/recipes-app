@@ -12,7 +12,8 @@ nav ul {
     margin: 0;
     padding-left: 5%;
     overflow: hidden;
-    background-color: #333;
+    background-color: #337ab7;
+    border-bottom: 10px;
 }
 
 nav ul li {
@@ -33,7 +34,7 @@ nav ul li a:hover:not(.active) {
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #064071;
 }
 </style>
 </head>
@@ -41,7 +42,7 @@ nav ul li a:hover:not(.active) {
 <body>
 <nav>
 <ul>
- <li class="active"><%= link_to "Home", recipes_path%></li>
+ <li id="li1"><%= link_to "Home", recipes_path , id: "ac"%></li>
 <% if current_user %>
 
   <li><%= link_to "New Recipe", new_recipe_path%></li>
@@ -50,12 +51,11 @@ nav ul li a:hover:not(.active) {
   <li><%= link_to "Sign Up", new_user_registration_path %></li>
   <li><%= link_to "Sign In", new_user_session_path %></li>
   <%end%>
-  <!-- <li><a href="#home">Home</a></li> -->
+ 
   <% if current_user %>
   <li style="float:right"><%=link_to current_user.username , edit_user_registration_path %></li>
   <%end%>
- 
-  <!-- <li style="float:right"><a href="#about">About</a></li> -->
+
 </ul>
 </nav>
   <p class="notice"><%= notice %></p>
@@ -63,7 +63,7 @@ nav ul li a:hover:not(.active) {
 
   
   <%= yield %>
-  
+
 
 
   

@@ -16,7 +16,12 @@ font-family: 'Raleway', sans-serif;
 }
 
 p {
-  color:#CCC;
+  color:#000;
+  font-size: 1.5em;
+
+}
+#clean-floating {
+  clear: both;
 }
 
 .spacing {
@@ -24,7 +29,7 @@ p {
   padding-bottom:7px;
 }
 .middlePage {
-  width: 680px;
+  width: 1000px;
     height: 500px;
     position: absolute;
     top:0;
@@ -32,6 +37,7 @@ p {
     left: 0;
     right: 0;
     margin: auto;
+    font-size: 1.5em;
 }
 
 .logo {

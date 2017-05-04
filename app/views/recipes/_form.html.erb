@@ -3,15 +3,23 @@
   <fieldset>
     <legend>Create New Recipe:</legend>
     <%= f.text_field :name, autofocus: true , placeholder: "Enter Recipe Name" , id: 'textinput' ,class: 'form-control input-md'%>
+    <br><br>
     <label>Main photo</label>
    <%= f.file_field :image %>
 
   </fieldset><br>
   <fieldset>
     <legend>Recipe Ingredients:</legend>
+
     <%= f.fields_for :ingredients do |ing|%>
       <%=ing.text_field :name , placeholder: "Enter Recipe Ingredient" , id: 'textinput' ,class: 'form-control input-md'%>
       <%end%>
+
+      <!-- <div id="ingredients">
+      <div><input type="text" name="name" class: 'form-control input-md'></div> 
+      <a herf="#" id="add-ingredient">add more</a>
+    </div>
+ -->
   </fieldset>
   <br>
   <%=f.submit "Submit Recipe" , class: "btn btn-primary btn-lg btn-block"%>
