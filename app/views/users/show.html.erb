@@ -1,0 +1,80 @@
+
+<section>
+
+  <div class="container" style="margin-top: 30px;">
+    <div class="profile-head">
+      <div class="col-md- col-sm-4 col-xs-12">
+        <img src="http://www.newlifefamilychiropractic.net/wp-content/uploads/2014/07/300x300.gif" class="img-responsive" />
+        <h6><%= @user.username%></h6>
+      </div><!--col-md-4 col-sm-4 col-xs-12 close-->
+
+
+      <div class="col-md-5 col-sm-5 col-xs-12">
+        <h5><%= @user.username%></h5>
+        <p>Web Designer / Develpor </p>
+        <ul>
+          <li><span class="glyphicon glyphicon-briefcase"></span> 5 years</li>
+          <li><span class="glyphicon glyphicon-map-marker"></span> U.S.A.</li>
+          <li><span class="glyphicon glyphicon-home"></span> 555 street Address,toedo 43606 U.S.A.</li>
+          <li><span class="glyphicon glyphicon-phone"></span> <a href="#" title="call">(+021) 956 789123</a></li>
+          <li><span class="glyphicon glyphicon-envelope"></span><a href="#" title="mail"><%= @user.email%></a></li>
+
+        </ul>
+
+
+      </div><!--col-md-8 col-sm-8 col-xs-12 close-->
+
+
+
+
+    </div><!--profile-head close-->
+  </div><!--container close-->
+
+
+  <div id="sticky" class="container">
+
+    <!-- Nav tabs -->
+    <% if current_user == @user.id %>
+    <ul class="nav nav-tabs nav-menu" role="tablist">
+      <li class="active">
+        <a href="#profile" role="tab" data-toggle="tab">
+          <i class="fa fa-male"></i> Profile
+        </a>
+      </li>
+      <li><a href="#change" role="tab" data-toggle="tab">
+        <i class="fa fa-key"></i><%= link_to "Edit Profile",edit_user_registration_path%>
+      </a>
+    </li>
+  </ul><!--nav-tabs close-->
+  <% end %>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div class="tab-pane fade active in" id="profile">
+      <div class="container">
+        <div class="col-sm-11" style="float:left;">
+          <div class="hve-pro">
+            <p><%= @user.username%> is one of the most creative and accomplished chefs of our time.</p>
+            </div><!--hve-pro close-->
+          </div><!--col-sm-12 close-->
+          <br clear="all" />
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="pro-title"><%= @user.username%>'s Rcipes:</h4>
+            </div><!--col-md-12 close-->
+
+
+            <div class="col-md-6">
+
+              <div class="table-responsive responsiv-table">
+                <table class="table bio-table">
+                  <tbody>
+                  <% @user.recipes.each do |recipe| %>
+                   <tr>      
+                    <td><%= recipe.name%></td>
+                    <td><%=recipe.created_at%></td> 
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div><!--table-responsive close-->
+          </div><!--col-md-6 close-->

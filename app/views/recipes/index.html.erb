@@ -12,7 +12,7 @@
             <!--BOX TITLE-->
             <div class="box-title pull-left">
               <p><i class="fa fa-font fa-lg"></i></p>
-              <p> <%=link_to recipe.name, recipe_path(recipe)%></p>
+              <p> Chef Name: <%=link_to recipe.user.username, user_path(recipe.user)%></p>
             </div>
             <!--end: TITLE-->
             <!--ICONS - FUNCTIONAL-->

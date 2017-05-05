@@ -30,7 +30,9 @@
           <div class="box-content">
             <div class="col-sm-4" style="float:left">
               <% if @recipe.image %> 
+              <div id="h-v">
                 <%= image_tag @recipe.image ,class: "img-responsive"%>
+                </div>
               <% else %>
                 <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
               <%end%>

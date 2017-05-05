@@ -12,4 +12,21 @@ $(document).ready(function(){
       $('#li1').addClass('active');
       // alert("pressed");
     // });
+
+
+ // $("#h-v").hover(function(){
+ //        $(this).css({
+ //          'width' : '400px',
+ //          'height' : '600px'
+          
+ //        });
+ //        }, function(){
+ //        $(this).css({
+ //          ' max-width' : '100%',
+ //          'height' : 'auto'
+ //        });
+
+        
+ //    });
+
 })
